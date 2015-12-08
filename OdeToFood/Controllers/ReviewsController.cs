@@ -12,12 +12,8 @@ namespace OdeToFood.Controllers
         // GET: Reviews
         public ActionResult Index()
         {
-            var model =
-                from r in _reviews
-                orderby r.Country
-                select r;
 
-            return View(model);
+            return View();
         }
 
         // GET: Reviews/Details/5
@@ -51,22 +47,15 @@ namespace OdeToFood.Controllers
         // GET: Reviews/Edit/5
         public ActionResult Edit(int id)
         {
-            var review = _reviews.Single(r => r.Id == id);
-
-            return View(review);
+            return View();
         }
 
         // POST: Reviews/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            var review = _reviews.Single(r => r.Id == id);
-            if (TryUpdateModel(review))
-            {
-                return RedirectToAction("Index");
-            }
 
-            return View(review);
+            return View();
 
         }
 
@@ -92,29 +81,5 @@ namespace OdeToFood.Controllers
             }
         }
 
-        static List<RestaurantReview> _reviews = new List<RestaurantReview>
-        {
-            new RestaurantReview {
-                Id = 1,
-                Name = "Cinnamon Club",
-                City = "London",
-                Country = "UK",
-                Rating = 10
-            },
-            new RestaurantReview {
-                Id = 2,
-                Name = "Marrakesh",
-                City = "D.C.",
-                Country = "USA",
-                Rating = 10
-            },
-            new RestaurantReview {
-                Id = 3,
-                Name = "The House of Elliot",
-                City = "Ghent",
-                Country = "Belgium",
-                Rating = 10
-            }
-        };
     }
 }
