@@ -1,7 +1,12 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@model OdeToFood.Models.AboutModel
 
-<p>Use this area to provide additional information.</p>
+@{
+    ViewBag.Title = "Personal Info";
+}
+
+<hgroup class="title">
+    <h2><em>@ViewBag.Title</em></h2>
+    <h3>@Model.Name</h3>
+</hgroup>
+
+<div>Location: @Model.Location</div>
