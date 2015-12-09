@@ -1,18 +1,14 @@
-﻿@model IEnumerable<OdeToFood.Models.RestaurantReview>
+﻿@model OdeToFood.Models.Restaurant
 
 @{
     ViewBag.Title = "Index";    
 }
 
-<h2>The Latest Reviews</h2>
+<h2>Reviews for @Model.Name</h2>
 
-<p>We are showing the latest <span class="btn btn-info">@Model.Count()</span> reviews</p>
+@Html.Partial("_Reviews", @Model.Reviews)
 
-@foreach (var item in Model)
-{
-    @Html.Partial("_Review", item);
-}
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { restaurantId = Model.Id})
 </p>
 
