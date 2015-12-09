@@ -38,3 +38,7 @@ textarea {
 .review p {
     font-size: .8em;
 }
+
+form {
+    margin-top: 20px;
+}
